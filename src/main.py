@@ -3,13 +3,16 @@ from tornado_swagger.setup import setup_swagger
 
 from config.logger import logger
 from handlers.helath import Health
+from handlers.claculator import Calculator
 
 
 PORT = 8080
 
+
 class Application(tornado.web.Application):
     _routes = [
         tornado.web.url(r"/api/health_", Health, name="health"),
+        tornado.web.url(r"/api/delivery-fee-calculator", Calculator, name="calculator"),
     ]
 
     def log_request(self, handler: tornado.web.RequestHandler) -> None:
