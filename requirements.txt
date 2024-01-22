@@ -1,0 +1,6 @@
+tornado==6.3.2
+tornado-swagger==1.4.5
+dacite==1.8.1
+pytest-tornado==0.8.1
+requests==2.31.0
+git+https://github.com/Kesha123/python-logger.git@v4.0.0
