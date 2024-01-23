@@ -5,8 +5,8 @@ import pytest
 try:
     from src.main import Server
 except:
-    sys.path.append(os.path.join(os.path.dirname(__file__), "../"))
-    from src.main import Server
+    sys.path.append(os.path.join(os.path.dirname(__file__), "../src"))
+    from main import Server
 
 
 @pytest.fixture
@@ -16,6 +16,6 @@ def app():
 
 
 @pytest.mark.gen_test
-def test_get_subscription(http_client, base_url):
+def test_api_health(http_client, base_url):
     response = yield http_client.fetch(f"{base_url}/api/health_")
     assert response.code == 200
