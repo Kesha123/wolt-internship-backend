@@ -1,3 +1,4 @@
+from datetime import datetime
 from api_types.calculator import DeliveryFeeRequest
 
 SURCHARGE = 10 * 100
@@ -10,9 +11,9 @@ FRIDAY_RUSH_COEFFICIENT = 1.2
 
 
 def small_order_surcharge(delivery_data: DeliveryFeeRequest) -> int:
-    return SURCHARGE - delivery_data.cart_value \
-           if delivery_data.cart_value < SURCHARGE \
-           else 0
+    if delivery_data.cart_value < SURCHARGE:
+        return SURCHARGE - delivery_data.cart_value
+    return 0
 
 
 def distance_delivery_fee(delivery_data: DeliveryFeeRequest) -> int:
@@ -43,3 +44,11 @@ def limit_delivery_fee(delivery_fee: int) -> int:
 
 def is_free_delivery(delivery_data: DeliveryFeeRequest) -> bool:
     return delivery_data.cart_value >= 200
+
+
+def friday_rush_delivery(total_fee: int, time: str) -> int:
+    time_object = datetime.strptime(time, "%Y-%m-%dT%H:%M:%SZ")
+    day_of_the_week = time_object.weekday()
+    hour = time_object.hour
+    if day_of_the_week == 5 and 15 <= hour <= 19:
+        return
