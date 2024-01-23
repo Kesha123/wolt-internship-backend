@@ -1,9 +1,17 @@
+import os
+import sys
 import tornado
 from tornado_swagger.setup import setup_swagger
 
-from config.logger import logger
-from handlers.helath import Health
-from handlers.claculator import Calculator
+try:
+    from config.logger import logger
+    from handlers.helath import Health
+    from handlers.claculator import Calculator
+except:
+    sys.path.append(os.path.join(os.path.dirname(__file__), "./"))
+    from config.logger import logger
+    from handlers.helath import Health
+    from handlers.claculator import Calculator
 
 
 PORT = 8080
