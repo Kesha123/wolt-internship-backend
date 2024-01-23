@@ -4,6 +4,7 @@ from dacite import from_dict
 from tornado_swagger.model import register_swagger_model
 
 from config.logger import logger
+from utils.delivery_fee import delivery_fee
 from utils.request import catch_error_request
 from api_types.calculator import DeliveryFeeRequest
 
@@ -43,7 +44,8 @@ class Calculator(tornado.web.RequestHandler):
             400:
                 description: Bad request
         """
-        self.write(json.dumps({}))
+        fee = delivery_fee(self.delivery_fee_data)
+        self.write(json.dumps({"delivery_fee": fee}))
 
 
 @register_swagger_model
