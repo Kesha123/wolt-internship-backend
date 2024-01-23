@@ -48,10 +48,6 @@ def mock_item_fee() -> list[int]:
     return [0, 0, 100, 50, 200, 0, 670, 150, 0, 0, 0, 0, 0, 570, 50, 100, 0, 0, 670, 200, 0]
 
 @pytest.fixture
-def mock_limit_delivery_fee() -> list[int]:
-    return
-
-@pytest.fixture
 def mock_is_free_delivery() -> list[bool]:
     return [False, False, False, True, False, False, False, True, False, False, False, False, False, False, True, False, False, False, False, False, False]
 
