@@ -58,3 +58,7 @@ def mock_friday_rush_fee() -> list[int]:
 @pytest.fixture
 def mock_delivery_fee() -> list[int]:
     return [310, 200, 400, 0, 500, 200, 1500, 0, 300, 200, 200, 650, 200, 770, 0, 400, 650, 200, 1070, 800, 710]
+
+@pytest.fixture
+def mock_payload() -> DeliveryFeeRequest:
+    return {"cart_value": 790, "delivery_distance": 2235, "number_of_items": 4, "time": "2024-01-15T13:00:00Z"}
