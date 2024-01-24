@@ -29,6 +29,8 @@ You can get acquainted more by checking out **Swagger documentaion**: [Swagger d
     source bin/activate
     ```
  - [ ] Install **development** dependencies
+
+    One of the dependencies requires git. This dependency is my personal Python package hosted on GitHub.
     ```
     pip install -r requirements/requirements-dev.txt
     ```
