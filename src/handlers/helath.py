@@ -27,8 +27,6 @@ class Health(tornado.web.RequestHandler):
                   $ref: '#/definitions/GetHealth'
             400:
                 description: Bad request
-            404:
-                description: Not Found
         """
         self.write(json.dumps({"status": "ok"}))
 
@@ -41,4 +39,5 @@ class GetHealth:
     properties:
         status:
             type: string
+            example: "ok"
     """

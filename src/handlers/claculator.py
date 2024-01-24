@@ -57,14 +57,18 @@ class PostCalculatorRequest:
         cart_value:
             type: integer
             format: int64
+            example: 790
         delivery_distance:
             type: integer
             format: int64
+            example: 2235
         number_of_items:
             type: integer
             format: int64
+            example: 4
         time:
             type: string
+            example: "2024-01-15T13:00:00Z"
     """
 
 @register_swagger_model
@@ -76,4 +80,5 @@ class PostCalculatorResponse:
         delivery_fee:
             type: integer
             format: int64
+            example: 710
     """
