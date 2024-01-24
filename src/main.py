@@ -4,18 +4,17 @@ import tornado
 from tornado_swagger.setup import setup_swagger
 
 try:
+    from config.server import *
     from config.logger import logger
     from handlers.health import Health
     from handlers.claculator import Calculator
 except:
     sys.path.append(os.path.join(os.path.dirname(__file__), "./"))
+    from config.server import *
     from config.logger import logger
     from handlers.health import Health
     from handlers.claculator import Calculator
 
-
-PORT = 8080
-DEBUG = True
 
 class Application(tornado.web.Application):
     _routes = [
