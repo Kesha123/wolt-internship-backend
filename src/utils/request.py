@@ -11,6 +11,7 @@ def catch_error_request(request):
         except Exception as e:
             args[0].set_status(400)
             args[0].write(json.dumps({"error": str(e)}))
+            args[0].finish()
             logger.error(e)
 
     return wrapper

@@ -14,6 +14,7 @@ class Calculator(tornado.web.RequestHandler):
     def initialize(self) -> None:
         self.logger = logger
 
+    @catch_error_request
     def prepare(self) -> None:
         request_body_data = json.loads(self.request.body)
         self.delivery_fee_data = from_dict(data_class=DeliveryFeeRequest, data=request_body_data)
@@ -44,6 +45,11 @@ class Calculator(tornado.web.RequestHandler):
             400:
                 description: Bad request
         """
+
+        if self.delivery_fee_data.cart_value <= 0 or self.delivery_fee_data.delivery_distance <= 0 or self.delivery_fee_data.number_of_items <= 0:
+            self.status(400)
+            self.finish()
+
         fee = delivery_fee(self.delivery_fee_data)
         self.write(json.dumps({"delivery_fee": fee}))
 
