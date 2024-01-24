@@ -13,7 +13,7 @@ Backend consists of the following 2 endpoints:
 
 **PORT**: 8080
 
-You can get acquinted more by checking out **Swagger documentaion**: [Swagger documentaion](#documentation)
+You can get acquainted more by checking out **Swagger documentaion**: [Swagger documentaion](#documentation)
 
 ## Requirements
  - **Python** >= 10 and **pip**
@@ -33,7 +33,7 @@ You can get acquinted more by checking out **Swagger documentaion**: [Swagger do
     ```
 
 ### Running with Docker
-If you choice to run the application is Docker, you will need to install **Docker**.
+If your choice to run the application is Docker, you will need to install **Docker**.
 
 ## How to run
 You are very flexible in a choice of the way you want to run the application.
@@ -87,7 +87,7 @@ If you'd like to run a particular set of tests, you can specify the desired file
 pytest tests/tests/test_api_health.py
 ```
 
-If you'd like to tetst a particular method, you can specify it like this
+If you'd like to test a particular method, you can specify it like this
 ```
 pytest tests/test_calculator.py::test_small_order_surcharge
 ```
