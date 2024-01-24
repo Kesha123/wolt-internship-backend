@@ -105,3 +105,5 @@ pytest tests/ --verbose
 Along with the application itself, Swagger documentation is provided. It can be accessed with this link: **[Swagger Backend Documentation](http://localhost:8080/api/doc/)**
 
 Or you can navigate to http://localhost:8080/api/doc/ in your browser.
+
+**NOTE**: This documentation is only available when the application is running.
