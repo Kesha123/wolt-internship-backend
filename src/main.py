@@ -15,7 +15,7 @@ except:
 
 
 PORT = 8080
-
+DEBUG = True
 
 class Application(tornado.web.Application):
     _routes = [
@@ -37,7 +37,7 @@ class Application(tornado.web.Application):
             contact="innokentiikozlov@gmail.com",
             schemes=["https"],
         )
-        super(Application, self).__init__(self._routes, debug=True, **kwargs)
+        super(Application, self).__init__(self._routes, debug=DEBUG, **kwargs)
 
 
 class Server:

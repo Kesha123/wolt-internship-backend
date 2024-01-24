@@ -3,7 +3,6 @@ import sys
 import pytest
 from dacite import from_dict
 
-from conftest import *
 
 try:
     from src.utils.delivery_fee import *

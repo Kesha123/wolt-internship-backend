@@ -8,6 +8,17 @@ except:
     sys.path.append(os.path.join(os.path.dirname(__file__), "../"))
     from src.api_types.calculator import DeliveryFeeRequest
 
+try:
+    from src.main import Server
+except:
+    sys.path.append(os.path.join(os.path.dirname(__file__), "../src"))
+    from main import Server
+
+
+@pytest.fixture
+def app():
+    app = Server(PORT=8888)
+    return app.get_app()
 
 @pytest.fixture
 def mock_delivery_data() -> list[DeliveryFeeRequest]:
