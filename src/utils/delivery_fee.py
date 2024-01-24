@@ -61,7 +61,7 @@ def item_delivery_fee(number_of_items: int) -> int:
     elif ITEM_NUMBER_NO_CHARGE + 1 <= number_of_items <= ITEM_NUMBER_EXTRA_BULK:
         return ITEM_FEE_ADDED * (number_of_items - ITEM_NUMBER_NO_CHARGE)
     else:
-        return (number_of_items - ITEM_NUMBER_NO_CHARGE) * ITEM_FEE_ADDED + ITEM_FEE_EXTRA_BULK
+        return (number_of_items - ITEM_NUMBER_NO_CHARGE) * ITEM_FEE_ADDED + int(ITEM_FEE_EXTRA_BULK)
 
 
 def limit_delivery_fee(delivery_fee: int) -> int:
