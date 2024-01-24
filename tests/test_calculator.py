@@ -49,3 +49,8 @@ def test_delivery_fee_calculator(mock_delivery_data, mock_delivery_fee):
         delivery_data = from_dict(data_class=DeliveryFeeRequest, data=data)
         assert delivery_fee(delivery_data) == mock_delivery_fee[i]
 
+
+def test_delivery_fee_calculator_failed(mock_delivery_data, mock_delivery_fee):
+   for i, data in enumerate(mock_delivery_data):
+        delivery_data = from_dict(data_class=DeliveryFeeRequest, data=data)
+        assert delivery_fee(delivery_data) != -1

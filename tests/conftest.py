@@ -77,4 +77,5 @@ def mock_bad_payload() -> DeliveryFeeRequest:
         {"cart_value": 790, "delivery_distance": -2235, "number_of_items": 4, "time": "2024-01-15T13:00:00Z"},
         {"cart_value": 790, "delivery_distance": 2235, "number_of_items": 4.0, "time": "2024-01-15T13:00:00Z"},
         {"cart_value": 790, "delivery_distance": 2235, "number_of_items": "4", "time": "2024-01-15T13:00:00Z"},
+        {"cart_value": 790, "delivery_distance": 2235, "number_of_items": "4", "time": "Date Mon Jan 15 2024 15:00:00 GMT+0200"},
     ]
