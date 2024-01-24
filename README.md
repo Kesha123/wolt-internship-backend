@@ -41,6 +41,12 @@ If your choice to run the application is Docker, you will need to install **Dock
 ## How to run
 You are very flexible in a choice of the way you want to run the application.
 
+You can change server configuration in `src/config/server.py` by setting **application port** and **debug mode**:
+```python
+PORT = 8080
+DEBUG = True
+```
+
 You can run with:
 
 1. **Docker**
