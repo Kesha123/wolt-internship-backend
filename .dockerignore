@@ -1,0 +1,9 @@
+lib/
+bin/
+lib64
+pyvenv.cfg
+Dockerfile.development
+README.md
+.pytest_cache/
+include/
+.git/
