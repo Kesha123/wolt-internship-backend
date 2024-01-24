@@ -52,7 +52,7 @@ You can run with:
     ```
     docker run -d --rm -p 8080:8080 --name delivery-fee-calculator delivery-fee-calculator
     ```
-    - [ ] Or run **development** container. Dont forget to change `/path/to/wolt-internship-backend/` to your actual path
+    - [ ] Or run **development** container. Don't forget to change `/path/to/wolt-internship-backend/` to your actual path
     ```
     docker run -d --rm -p 8080:8080 --name delivery-fee-calculator -v "/path/to/wolt-internship-backend/src:/app/src" delivery-fee-calculator
     ```
@@ -74,7 +74,7 @@ Server is running on port 8080
 ## How to test
 
 Test set-up consists of:
-1. Calculator and its functions itsef testing.
+1. Calculator and its functions itself testing.
 2. Calculator endpoint testing.
 3. Backend general health testing.
 
