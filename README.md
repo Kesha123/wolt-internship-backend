@@ -13,7 +13,7 @@ Backend consists of the following 2 endpoints:
 
 **PORT**: 8080
 
-You can get acquainted more by checking out **Swagger documentaion**: [Swagger documentaion](#documentation)
+You can get acquainted more by checking out **Swagger documentaion**: [Swagger documentation](#documentation)
 
 ## Requirements
  - **Python** >= 10 and **pip**
