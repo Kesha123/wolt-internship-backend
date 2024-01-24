@@ -47,7 +47,7 @@ class Calculator(tornado.web.RequestHandler):
         """
 
         if self.delivery_fee_data.cart_value <= 0 or self.delivery_fee_data.delivery_distance <= 0 or self.delivery_fee_data.number_of_items <= 0:
-            self.status(400)
+            self.set_status(400)
             self.finish()
 
         fee = delivery_fee(self.delivery_fee_data)
