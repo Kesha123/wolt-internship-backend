@@ -11,7 +11,7 @@ Backend consists of the following 2 endpoints:
 
 **HOST**:`localhost`
 
-**PORT**: 8080
+**PORT**: `8080`
 
 You can get acquainted more by checking out **Swagger documentaion**: [Swagger documentation](#documentation)
 
@@ -23,13 +23,14 @@ You can get acquainted more by checking out **Swagger documentaion**: [Swagger d
 
 ### Running in command line
  - [ ] You have python installed
+ - [ ] Create and activate virtual environment
+    ```
+    python3 -m venv .
+    source bin/activate
+    ```
  - [ ] Install **development** dependencies
     ```
     pip install -r requirements/requirements-dev.txt
-    ```
-    Probably you want first to create **virtual environment**
-    ```
-    python3 -m venv .
     ```
 
 ### Running with Docker
@@ -84,7 +85,7 @@ pytest tests/
 
 If you'd like to run a particular set of tests, you can specify the desired file
 ```
-pytest tests/tests/test_api_health.py
+pytest tests/test_api_health.py
 ```
 
 If you'd like to test a particular method, you can specify it like this
