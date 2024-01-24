@@ -69,3 +69,12 @@ def mock_delivery_fee() -> list[int]:
 @pytest.fixture
 def mock_payload() -> DeliveryFeeRequest:
     return {"cart_value": 790, "delivery_distance": 2235, "number_of_items": 4, "time": "2024-01-15T13:00:00Z"}
+
+@pytest.fixture
+def mock_bad_payload() -> DeliveryFeeRequest:
+    return [
+        {"cart_value": 0, "delivery_distance": 2235, "number_of_items": 4, "time": "2024-01-15T13:00:00Z"},
+        {"cart_value": 790, "delivery_distance": -2235, "number_of_items": 4, "time": "2024-01-15T13:00:00Z"},
+        {"cart_value": 790, "delivery_distance": 2235, "number_of_items": 4.0, "time": "2024-01-15T13:00:00Z"},
+        {"cart_value": 790, "delivery_distance": 2235, "number_of_items": "4", "time": "2024-01-15T13:00:00Z"},
+    ]
