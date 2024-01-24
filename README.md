@@ -5,6 +5,16 @@ This application is needed when a customer is ready with their shopping cart and
 
 ## Description
 
+Backend consists of the following 2 endpoints:
+1. `api/health_`
+1. `api/delivery-fee-calculator`
+
+**HOST**:`localhost`
+
+**PORT**: 8080
+
+You can get acquinted more by checking out **Swagger documentaion**: [Swagger documentaion](#documentation)
+
 ## Requirements
  - **Python** >= 10 and **pip**
  - **Docker** if you'd like to run with **Docker**
