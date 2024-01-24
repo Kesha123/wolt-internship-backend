@@ -16,7 +16,7 @@ Backend consists of the following 2 endpoints:
 You can get acquainted more by checking out **Swagger documentaion**: [Swagger documentation](#documentation)
 
 ## Requirements
- - **Python** >= 10 and **pip**
+ - **Python** >= 3.10 and **pip**
  - **Docker** if you'd like to run with **Docker**
 
 ## Installation
