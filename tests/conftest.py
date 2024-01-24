@@ -3,16 +3,12 @@ import sys
 import pytest
 
 try:
+    from src.main import Server
     from src.api_types.calculator import DeliveryFeeRequest
 except:
     sys.path.append(os.path.join(os.path.dirname(__file__), "../"))
-    from src.api_types.calculator import DeliveryFeeRequest
-
-try:
     from src.main import Server
-except:
-    sys.path.append(os.path.join(os.path.dirname(__file__), "../src"))
-    from main import Server
+    from src.api_types.calculator import DeliveryFeeRequest
 
 
 @pytest.fixture
