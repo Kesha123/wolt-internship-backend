@@ -9,6 +9,20 @@ This application is needed when a customer is ready with their shopping cart and
 
 ## Installation
 
+### Running in command line
+ - [ ] You have python installed
+ - [ ] Install **development** dependencies
+    ```
+    pip install -r requirements/requirements-dev.txt
+    ```
+    Probably you want first to create **virtual environment**
+    ```
+    python3 -m venv .
+    ```
+
+### Running with Docker
+If you choice to run the application is Docker, you will need to install **Docker**.
+
 ## How to run
 You are very flexible in a choice of the way you want to run the application.
 
@@ -27,6 +41,8 @@ You can run with:
     ```
     docker run -d --rm -p 8080:8080 --name delivery-fee-calculator -v "/path/to/wolt-internship-backend/src:/app/src" delivery-fee-calculator
     ```
+
+    P.S: preferably to do on **UNIX-based** systems
 
 2. **Basic command line**
     ```
