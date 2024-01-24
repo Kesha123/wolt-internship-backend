@@ -3,9 +3,11 @@
 ## Background
 This application is needed when a customer is ready with their shopping cart and they’d like to see how much the delivery will cost. The delivery price depends on the cart value, the number of items in the cart, the time of the order, and the delivery distance.
 
-## Desciption
+## Description
 
 ## Requirements
+ - **Python** >= 10 and **pip**
+ - **Docker** if you'd like to run with **Docker**
 
 ## Installation
 
