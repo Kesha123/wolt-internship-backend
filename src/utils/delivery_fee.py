@@ -9,6 +9,28 @@ except:
     from api_types.calculator import DeliveryFeeRequest
 
 
+SURCHARGE_BOTTOM = 10 * 100
+
+DISTANCE_INITIAL = 1000
+DISTANCE_ADDED = 500
+DISTANCE_FEE_INITIAL = 2 * 100
+DISTANCE_FEE_ADDED = 1 * 100
+
+ITEM_NUMBER_NO_CHARGE = 4
+ITEM_NUMBER_EXTRA_BULK = 12
+ITEM_FEE_INITIAL = 0
+ITEM_FEE_ADDED = 50
+ITEM_FEE_EXTRA_BULK = 1.2 * 100
+
+DELIVERY_FEE_LIMIT = 15 * 100
+FREE_DELIVERY_CART_VALUE = 200 * 100
+
+FRIDAY_DAY_NUMBER = 4
+FRIDAY_RUSH_TIME_START = 15
+FRIDAY_RUSH_TIME_END = 19
+FRIDAY_RUSH_MULTIPLIER = 1.2
+
+
 def small_order_surcharge(cart_value: int) -> int:
     """
     Calculate the surcharge based on the cart value.
@@ -19,8 +41,8 @@ def small_order_surcharge(cart_value: int) -> int:
     Returns:
         int: The surcharge.
     """
-    if cart_value < 1000:
-        return 1000 - cart_value
+    if cart_value < SURCHARGE_BOTTOM:
+        return SURCHARGE_BOTTOM - cart_value
     return 0
 
 
@@ -34,14 +56,14 @@ def distance_delivery_fee(delivery_distance: int) -> int:
     Returns:
         int: The delivery based fee.
     """
-    if delivery_distance <= 1000:
-        return 200
+    if delivery_distance <= DISTANCE_INITIAL:
+        return DISTANCE_FEE_INITIAL
     else:
-        value = (delivery_distance - 1000) // 500
-        b = (delivery_distance - 1000) % 500
+        value = (delivery_distance - DISTANCE_INITIAL) // DISTANCE_ADDED
+        b = (delivery_distance - DISTANCE_INITIAL) % DISTANCE_ADDED
         if b > 0:
-            return value * 100 + 300
-        return value * 100 + 200
+            return value * DISTANCE_FEE_ADDED + 300
+        return value * DISTANCE_FEE_ADDED + DISTANCE_FEE_INITIAL
 
 
 def item_delivery_fee(number_of_items: int) -> int:
@@ -54,12 +76,12 @@ def item_delivery_fee(number_of_items: int) -> int:
     Returns:
         int: The item based fee.
     """
-    if number_of_items <= 4:
-        return 0
-    elif 5 <= number_of_items <= 12:
-        return 50 * (number_of_items - 4)
+    if number_of_items <= ITEM_NUMBER_NO_CHARGE:
+        return ITEM_FEE_INITIAL
+    elif ITEM_NUMBER_NO_CHARGE + 1 <= number_of_items <= ITEM_NUMBER_EXTRA_BULK:
+        return ITEM_FEE_ADDED * (number_of_items - ITEM_NUMBER_NO_CHARGE)
     else:
-        return (number_of_items - 4) * 50 + 1.2 * 100
+        return (number_of_items - ITEM_NUMBER_NO_CHARGE) * ITEM_FEE_ADDED + ITEM_FEE_EXTRA_BULK
 
 
 def limit_delivery_fee(delivery_fee: int) -> int:
@@ -72,8 +94,8 @@ def limit_delivery_fee(delivery_fee: int) -> int:
     Returns:
         int: The limited delivery fee.
     """
-    if delivery_fee > 1500:
-        return 1500
+    if delivery_fee > DELIVERY_FEE_LIMIT:
+        return DELIVERY_FEE_LIMIT
     return delivery_fee
 
 
@@ -87,7 +109,7 @@ def is_free_delivery(cart_value) -> bool:
     Returns:
         bool: True if the delivery is free, False otherwise.
     """
-    return cart_value >= 20000
+    return cart_value >= FREE_DELIVERY_CART_VALUE
 
 
 def friday_rush_delivery(total_fee: int, time: str) -> int:
@@ -104,10 +126,10 @@ def friday_rush_delivery(total_fee: int, time: str) -> int:
     time_object = datetime.strptime(time, "%Y-%m-%dT%H:%M:%SZ")
     day_of_the_week = time_object.weekday()
     hour = time_object.hour
-    if day_of_the_week == 4 and 15 <= hour <= 19:
-        if total_fee * 1.2 >= 1500:
-            return 1500
-        return int(total_fee * 1.2)
+    if day_of_the_week == FRIDAY_DAY_NUMBER and FRIDAY_RUSH_TIME_START <= hour <= FRIDAY_RUSH_TIME_END:
+        if total_fee * FRIDAY_RUSH_MULTIPLIER >= DELIVERY_FEE_LIMIT:
+            return DELIVERY_FEE_LIMIT
+        return int(total_fee * FRIDAY_RUSH_MULTIPLIER)
     return total_fee
 
 
