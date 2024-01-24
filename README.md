@@ -10,10 +10,28 @@ This application is needed when a customer is ready with their shopping cart and
 ## Installation
 
 ## How to run
+You are very flexible in a choice of the way you want to run the application.
 
-```
-python3 src/main.py
-```
+You can run with:
+
+1. **Docker**
+    - [ ] Build the image first
+    ```
+    docker build -t delivery-fee-calculator -f Dockerfile.development .
+    ```
+    - [ ] Run **"production"** container
+    ```
+    docker run -d --rm -p 8080:8080 --name delivery-fee-calculator delivery-fee-calculator
+    ```
+    - [ ] Or run **development** container. Dont forget to change `/path/to/wolt-internship-backend/` to your actual path
+    ```
+    docker run -d --rm -p 8080:8080 --name delivery-fee-calculator -v "/path/to/wolt-internship-backend/src:/app/src" delivery-fee-calculator
+    ```
+
+2. **Basic command line**
+    ```
+    python3 src/main.py
+    ```
 
 If application was run successfuly you will see the following output
 ```
